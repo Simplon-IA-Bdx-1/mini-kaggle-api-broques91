@@ -1,7 +1,5 @@
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import cross_val_score
-from sklearn.metrics import accuracy_score,f1_score
 import pandas as pd
 import joblib
 
