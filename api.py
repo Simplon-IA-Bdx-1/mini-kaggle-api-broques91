@@ -5,7 +5,6 @@ from sklearn.metrics import roc_auc_score
 import joblib
 
 app = Flask(__name__)
-model = joblib.load(open('model/model.pkl', 'rb'))
 df_test = pd.read_csv('data/test.csv')
 
 
