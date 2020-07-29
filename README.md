@@ -19,9 +19,18 @@ pip install -r requirements.txt
 
 export FLASK_APP=api.py
 flask run
+````
 
+Puis dans une nouvelle fenêtre de terminal exécuter:
+
+```
 curl --request POST \
   --url 'http://localhost:5000/submit' \
   --header 'accept: multipart/form-data' \
   -F 'file=@test2-predictions.csv'
+```
+
+Ou dans le navigateur web :
+```
+http://localhost:5000/submit
 ```
