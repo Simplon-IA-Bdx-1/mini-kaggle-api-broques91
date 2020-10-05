@@ -4,8 +4,12 @@ import pandas as pd
 import joblib
 
 # Load Dataset
-df_train = pd.read_csv('data/train2.csv', sep=',', index_col=0)
-df_test = pd.read_csv('data/test2.csv', sep=',', index_col=0)
+df_train = pd.read_csv('data/train2.csv', sep=',')
+df_test = pd.read_csv('data/test2.csv', sep=',')
+
+# ID
+for df in [df_train, df_test]:
+    df.rename(columns={'Unnamed: 0':'ID'}, inplace=True)
 
 # Features / Target
 X_train = df_train.drop('SeriousDlqin2yrs', axis=1)
@@ -21,7 +25,7 @@ model.fit(X_train,y_train)
 y_pred = model.predict_proba(X_test)[:,1]
 
 # DataFrame Predictions
-data = {'SeriousDlqin2yrs': y_pred}
+data = {'ID': X_test['ID'], 'SeriousDlqin2yrs': y_pred}
 predictions = pd.DataFrame(data=data)
 
 # Save Predictions
